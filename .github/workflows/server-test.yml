@@ -83,9 +83,10 @@ jobs:
           docker pull ${{ env.REGISTRY}}/${{env.IMAGE_REPOSITORY}}:latest
           cd /etc/github-action/ENV/gha-pl
           sudo curl -fLOk -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://raw.githubusercontent.com/${{ github.repository }}/${{ steps.extract_branch.outputs.branch}}/docker-compose.yml
-          ls -al
+        
           docker compose down 
-          docker compose up -d
+        #   docker compose up -d
+        
          
         #   sudo wget -O file.ext https://raw.githubusercontent.com/${{ github.repository }}/${{ steps.extract_branch.outputs.branch}}/docker-compose.yml?token=${{ secrets.GITHUB_TOKEN }}
           
