@@ -1,7 +1,7 @@
 version: "3"
 services:
   server-test:
-    image: server-test
+    image: ghcr.io/lightcode5794/github-actions-playgound:latest
     build: .
     container_name: server-test
     restart: always
