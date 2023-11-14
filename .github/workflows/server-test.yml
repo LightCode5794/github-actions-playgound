@@ -67,6 +67,10 @@ jobs:
          registry: ${{ env.REGISTRY }}
          username: ${{ github.actor }}
          password: ${{ secrets.GITHUB_TOKEN }}
+    -
+      name: Extract branch name
+      id: extract_branch
+      run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
     - 
       name: Executing remote ssh commands using ssh key and deploy the image to server
       uses: appleboy/ssh-action@v1.0.0
@@ -78,7 +82,7 @@ jobs:
           docker login ghcr.io -u ${{github.actor}} -p ${{ secrets.GITHUB_TOKEN }}
           docker pull ${{ env.REGISTRY}}/${{env.IMAGE_REPOSITORY}}:latest
           cd /etc/github-action/ENV/gha-pl
-          sudo wget -O file.ext https://raw.githubusercontent.com/${{ github.repository }}/${{ github.ref }}/docker-compose.yml
+          sudo wget -O file.ext https://raw.githubusercontent.com/${{ github.repository }}/${{ steps.extract_branch.outputs.branch}}/docker-compose.yml?token=${{ secrets.GITHUB_TOKEN }}
           ls -al
         #   docker stop 
         #   docker run --rm --restart=always -d --env-file .env -p 8000:80 --name server-container  ${{ env.REGISTRY}}/${{env.IMAGE_REPOSITORY}}:latest
