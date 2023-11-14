@@ -84,7 +84,7 @@ jobs:
           cd /etc/github-action/ENV/gha-pl
           sudo curl -fLOk -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://raw.githubusercontent.com/${{ github.repository }}/${{ steps.extract_branch.outputs.branch}}/docker-compose.yml
         
-          docker compose down |
+          docker compose down && |
           docker compose up -d  
         
          
