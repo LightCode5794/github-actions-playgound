@@ -80,7 +80,7 @@ jobs:
         key: ${{ secrets.DEPLOY_KEY }}
         script: |
           echo docker pull ${{ env.REGISTRY}}/${{env.IMAGE_REPOSITORY}}:latest
-          docker compose up -d
+        #   docker compose up -d
     #   run: |
     #     echo docker pull ${{ env.REGISTRY}}/${IMAGE_REPOSITORY}:latest
     #     docker compose up -d
