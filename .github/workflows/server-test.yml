@@ -74,10 +74,10 @@ jobs:
          registry: ${{ env.REGISTRY }}
          username: ${{ github.actor }}
          password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Lowercase repository name variable
+      run: echo "${{ env.IMAGE_NAME }}" | tr '[:upper:]' '[:lower:]' | export IMAGE_NAME
     - name: Pull and deploy image
       run: |
-        echo "IMAGE_NAME=$(${{ env.IMAGE_NAME }}@L)" >> $GITHUB_ENV
-        echo $IMAGE_NAME
         docker pull ${{ env.REGISTRY }}/$IMAGE_NAME:latest |
         docker compose down && docker compose up -d
       
