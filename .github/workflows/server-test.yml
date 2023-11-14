@@ -76,7 +76,7 @@ jobs:
          password: ${{ secrets.GITHUB_TOKEN }}
     - name: Pull and deploy image
       run: |
-        echo "IMAGE_NAME=${${{ env.IMAGE_NAME }}@L}" >> $GITHUB_ENV
+        echo "IMAGE_NAME=$(${{ env.IMAGE_NAME }}@L)" >> $GITHUB_ENV
         echo $IMAGE_NAME
         docker pull ${{ env.REGISTRY }}/$IMAGE_NAME:latest |
         docker compose down && docker compose up -d
