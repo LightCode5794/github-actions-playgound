@@ -81,6 +81,7 @@ jobs:
     - name: Pull and deploy image
       run: |
         echo docker pull ${{ env.REGISTRY}}/${IMAGE_REPOSITORY}:latest
+        docker compose up -d
         
        
 
