@@ -78,7 +78,7 @@ jobs:
       run: echo "${{ env.IMAGE_NAME }}" | tr '[:upper:]' '[:lower:]' | export IMAGE_NAME
     - name: Pull and deploy image
       run: |
-        docker pull ${{ env.REGISTRY }}/$IMAGE_NAME:latest |
+        docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest |
         docker compose down && docker compose up -d
       
         
