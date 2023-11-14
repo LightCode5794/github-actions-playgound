@@ -1,7 +1,7 @@
 version: "3"
 services:
   server-test:
-    image: ghcr.io/lightcode5794/github-actions-playgound:latest
+    image: ghcr.io/lightcode5794/github-actions-playgound:sha-82112da
     env_file:
       - .env
     build: .
