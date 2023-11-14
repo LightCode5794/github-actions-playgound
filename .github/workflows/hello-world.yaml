@@ -22,7 +22,7 @@ jobs:
         with:
           mode: exactly
           count: 0
-          labels: "do not build"
+          labels: "documentation"
       - run: echo "TODAY=$(date +%y-%m-%d)" >> $GITHUB_ENV
       - run: echo hello-world 👋🌏, today is $TODAY
       
