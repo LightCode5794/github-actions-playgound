@@ -60,12 +60,7 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.DEPLOY_KEY }}
         script: whoami
-    - name: Log in to the Container registry
-      uses: docker/login-action@v3
-      with:
-         registry: ${{ env.REGISTRY }}
-         username: ${{ github.actor }}
-         password: ${{ secrets.GITHUB_TOKEN }}
+   
     - name: Lowercase repository name variable
       run: echo "${{ env.IMAGE_NAME }}" | tr '[:upper:]' '[:lower:]' | export IMAGE_NAME
 
@@ -74,9 +69,16 @@ jobs:
 
     - name: Print hello message
       run: echo hello-world 👋🌏, today is ${IMAGE_REPOSITORY}
-
+    
+    - name: Log in to the Container registry
+      uses: docker/login-action@v3
+      with:
+         registry: ${{ env.REGISTRY }}
+         username: ${{ github.actor }}
+         password: ${{ secrets.GITHUB_TOKEN }}
     - name: Pull and deploy image
       run: |
-        docker pull ${{ env.REGISTRY}}/${IMAGE_REPOSITORY}:latest |
+        echo docker pull ${{ env.REGISTRY}}/${IMAGE_REPOSITORY}:dd31854db755ed7b2cd40ffceaf31399c82134c3 
+        echo docker pull ghcr.io/lightcode5794/github-actions-playgound:dd31854db755ed7b2cd40ffceaf31399c82134c3
        
 
