@@ -68,18 +68,18 @@ jobs:
          username: ${{ github.actor }}
          password: ${{ secrets.GITHUB_TOKEN }}
     - 
-      name: executing remote ssh commands using ssh key
+      name: Executing remote ssh commands using ssh key and deploy the image to server
       uses: appleboy/ssh-action@v1.0.0
       with:
-        host: ${{ secrets.HOST }}
+        host: ${{ secrets.HOST }} 
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.DEPLOY_KEY }}
         script: |
           docker login ghcr.io -u ${{github.actor}} -p ${{ secrets.GITHUB_TOKEN }}
           docker pull ${{ env.REGISTRY}}/${{env.IMAGE_REPOSITORY}}:latest
-          cd /etc/github-action/ENV/gha-pl
+          sudo cd /etc/github-action/ENV/gha-pl
           sudo scp -f docker-compose.yml ${{ secrets.USERNAME }}@${{ secrets.HOST }}:./
-          docker compose down && \
+          docker compose down 
           docker compose up -d
           ls -al
         #   docker stop 
