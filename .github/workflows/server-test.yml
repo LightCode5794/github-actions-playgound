@@ -62,16 +62,13 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-    - name: Install AWS CLI
-      run: |
-       sudo apt-get update
-       sudo apt-get install -y awscli
-    - name: executing remote ssh commands using password
+    - name: executing remote ssh commands using ssh key
       uses: appleboy/ssh-action@v1.0.0
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
-        port: ${{ secrets.PORT }}
+        key: ${{ secrets.DEPLOY_KEY }}
+        script: whoami
     - name: Log in to the Container registry
       uses: docker/login-action@v3
       with:
