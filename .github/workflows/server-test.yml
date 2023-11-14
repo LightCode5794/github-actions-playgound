@@ -80,9 +80,7 @@ jobs:
          password: ${{ secrets.GITHUB_TOKEN }}
     - name: Pull and deploy image
       run: |
-        echo docker pull ${{ env.REGISTRY}}/${IMAGE_REPOSITORY}:latest &&
-        docker compose down && \
-        docker compose up -d
-
+        echo docker pull ${{ env.REGISTRY}}/${IMAGE_REPOSITORY}:latest
+        
        
 
