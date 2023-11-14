@@ -79,7 +79,9 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.DEPLOY_KEY }}
         script: |
-          echo docker pull ${{ env.REGISTRY}}/${{env.IMAGE_REPOSITORY}}:latest
+          docker pull ${{ env.REGISTRY}}/${{env.IMAGE_REPOSITORY}}:latest
+          ls -al
+
         #   docker compose up -d
     #   run: |
     #     echo docker pull ${{ env.REGISTRY}}/${IMAGE_REPOSITORY}:latest
