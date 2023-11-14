@@ -75,12 +75,12 @@ jobs:
          username: ${{ github.actor }}
          password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: downcase REPO_NAME
-      run: echo "REPO_NAME=${GITHUB_REPOSITORY,,}" >>GITHUB_ENV
+    - name: Downcase REPO_NAME
+      run: echo "REPO_NAME=${${{ github.repository }},,}" >> $GITHUB_ENV
 
     - name: Pull and deploy image
       run: |
-        docker pull ${{ env.REGISTRY }}/${REPO_NAME}:latest |
+        docker pull ${{ env.REGISTRY }}/$REPO_NAME:latest |
         docker compose down && docker compose up -d
    
       
