@@ -68,10 +68,15 @@ jobs:
          password: ${{ secrets.GITHUB_TOKEN }}
     - name: Lowercase repository name variable
       run: echo "${{ env.IMAGE_NAME }}" | tr '[:upper:]' '[:lower:]' | export IMAGE_NAME
+
+    - name: Set IMAGE_REPOSITORY variable
+      run: echo IMAGE_REPOSITORY=$(echo LightCode5794/github-actions-playgound | tr '[:upper:]' '[:lower:]') >> $GITHUB_ENV
+
+    - name: Print hello message
+      run: echo hello-world 👋🌏, today is ${IMAGE_REPOSITORY}
+
     - name: Pull and deploy image
       run: |
-        echo "IMAGE_REPOSITORY=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
-        echo hello-world 👋🌏, today is $IMAGE_REPOSITORY
         docker pull ${{ env.REGISTRY}}/${IMAGE_REPOSITORY}:latest |
         docker compose down && docker compose up -d
 
