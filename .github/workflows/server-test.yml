@@ -94,18 +94,6 @@ jobs:
             cd /etc/github-action/ENV/gha-pl
             docker compose down && \
             docker compose up -d  
-        
-         
-        #   sudo wget -O file.ext https://raw.githubusercontent.com/${{ github.repository }}/${{ steps.extract_branch.outputs.branch}}/docker-compose.yml?token=${{ secrets.GITHUB_TOKEN }}
-          
-        #   docker stop 
-        #   docker run --rm --restart=always -d --env-file .env -p 8000:80 --name server-container  ${{ env.REGISTRY}}/${{env.IMAGE_REPOSITORY}}:latest
-         
-
-        #   docker compose up -d
-    #   run: |
-    #     echo docker pull ${{ env.REGISTRY}}/${IMAGE_REPOSITORY}:latest
-    #     docker compose up -d
-        
+    
        
 
