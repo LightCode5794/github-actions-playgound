@@ -76,6 +76,6 @@ jobs:
          password: ${{ secrets.GITHUB_TOKEN }}
     - name: Pull and deploy image
       run: |
-        echo docker pull ${{ env.REGISTRY}}/${IMAGE_REPOSITORY}
+        echo docker pull ${{ env.REGISTRY}}/${IMAGE_REPOSITORY}:latest
        
 
