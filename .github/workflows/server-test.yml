@@ -77,8 +77,8 @@ jobs:
         script: |
           docker login ghcr.io -u ${{github.actor}} -p ${{ secrets.GITHUB_TOKEN }}
           docker pull ${{ env.REGISTRY}}/${{env.IMAGE_REPOSITORY}}:latest
-          sudo cd /etc/github-action/ENV/gha-pl
-          sudo scp -f docker-compose.yml ${{ secrets.USERNAME }}@${{ secrets.HOST }}:./
+          cd /etc/github-action/ENV/gha-pl
+          echo sudo scp -f docker-compose.yml ${{ secrets.USERNAME }}@${{ secrets.HOST }}:./
           docker compose down 
           docker compose up -d
           ls -al
