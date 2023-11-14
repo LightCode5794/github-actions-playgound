@@ -11,6 +11,7 @@ env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
 
+
 # There is a single job in this workflow. It's configured to run on the latest available version of Ubuntu.
 jobs:
   build:
@@ -79,6 +80,7 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.DEPLOY_KEY }}
         script: |
+          docker login ghcr.io -u ${{github.actor}} -p ${{ secrets.GITHUB_TOKEN }}
           docker pull ${{ env.REGISTRY}}/${{env.IMAGE_REPOSITORY}}:latest
           ls -al
 
