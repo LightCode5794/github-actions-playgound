@@ -78,8 +78,8 @@ jobs:
       run: echo "${{ env.IMAGE_NAME }}" | tr '[:upper:]' '[:lower:]' | export IMAGE_NAME
     - name: Pull and deploy image
       run: |
-        echo ::set-output name=lowercase_name::${{ env.IMAGE_NAME  }} 
-        docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}:latest |
+        echo ::set-env name=IMAGE_REPOSITORY::$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')
+        docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_REPOSITORY }}:latest |
         docker compose down && docker compose up -d
       
         
