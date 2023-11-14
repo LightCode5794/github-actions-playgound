@@ -1,0 +1,10 @@
+version: "3"
+services:
+  server-test:
+    image: server-test
+    build: .
+    container_name: server-test
+    restart: always
+    ports:
+      - 8004:8004
+    command: npm start
