@@ -3,9 +3,9 @@ FROM node:19.5.0-alpine as base
 # USER root
 WORKDIR /webapps
 # COPY package*.json ./
-COPY ./ /webapps
+COPY . . 
 RUN npm install
-ADD . /webapps  
+# ADD . /webapps  
 CMD [ "node","server.js" ]
 # CMD node server.js
 
