@@ -82,10 +82,10 @@ jobs:
           docker login ghcr.io -u ${{github.actor}} -p ${{ secrets.GITHUB_TOKEN }}
           docker pull ${{ env.REGISTRY}}/${{env.IMAGE_REPOSITORY}}:latest
           cd /etc/github-action/ENV/gha-pl
-          sudo curl -fLOk -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://raw.githubusercontent.com/LightCode5794/github-actions-playgound/stag/docker-compose.yml
+          sudo curl -fLOk -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://raw.githubusercontent.com/${{ github.repository }}/${{ steps.extract_branch.outputs.branch}}/docker-compose.yml
           ls -al
-          docker compose down && \
-          docker docmpose up -d
+          docker compose down 
+          docker compose up -d
          
         #   sudo wget -O file.ext https://raw.githubusercontent.com/${{ github.repository }}/${{ steps.extract_branch.outputs.branch}}/docker-compose.yml?token=${{ secrets.GITHUB_TOKEN }}
           
