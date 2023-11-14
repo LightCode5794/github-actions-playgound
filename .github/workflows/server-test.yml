@@ -74,15 +74,12 @@ jobs:
          registry: ${{ env.REGISTRY }}
          username: ${{ github.actor }}
          password: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Downcase REPO_NAME
-      run: echo "REPO_NAME=${${{ github.repository }},,}" >> $GITHUB_ENV
-
     - name: Pull and deploy image
       run: |
-        docker pull ${{ env.REGISTRY }}/$REPO_NAME:latest |
+        echo "IMAGE_NAME=${${{ env.IMAGE_NAME }}@L}" >> $GITHUB_ENV
+        echo $IMAGE_NAME
+        docker pull ${{ env.REGISTRY }}/$IMAGE_NAME:latest |
         docker compose down && docker compose up -d
-   
       
         
       
