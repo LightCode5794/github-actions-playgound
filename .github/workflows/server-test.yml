@@ -81,7 +81,7 @@ jobs:
         key: ${{ secrets.DEPLOY_KEY }}
         script: |
           docker login ghcr.io -u ${{github.actor}} -p ${{ secrets.GITHUB_TOKEN }}
-          docker pull ${{ env.REGISTRY}}/${{env.IMAGE_REPOSITORY}}:sha-82112da
+          docker pull ${{ env.REGISTRY}}/${{env.IMAGE_REPOSITORY}}:latest
           cd /etc/github-action/ENV/gha-pl
           sudo curl -fLOk -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://raw.githubusercontent.com/${{ github.repository }}/${{ steps.extract_branch.outputs.branch}}/docker-compose.yml
     -
