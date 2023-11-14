@@ -9,7 +9,7 @@ on:
        
     branches: 
       - main
-      - stag
+      
   pull_request:
     types: [opened,reopened, synchronize, labeled, unlabeled]
 
