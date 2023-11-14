@@ -13,10 +13,12 @@ on:
   pull_request:
     types: [opened,reopened, synchronize, labeled, unlabeled]
 
-
 jobs: 
   say-hello:
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
     steps: 
       - uses: mheap/github-action-required-labels@v5
         with:
