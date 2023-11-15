@@ -88,7 +88,7 @@ The best practice is create the SSH Keys on local machine not remote machine. Lo
 
 You can add another key you need for your project, but three key above is required to connect to the deployment server
 
-Note: If you want to change the name of three keys, you also must change with the same key name in secrets in [Template](.github\workflows\ci-cd.yaml)
+Note: If you want to change the name of three keys, you also must change with the same key name in secrets in [Template](.github\workflows\ci-cd.yml)
 ![Alt text](./readme-imgs/image-14.png)
 
 
@@ -106,14 +106,14 @@ Like this:
 ![Alt text](./readme-imgs/image-20.png)
 
 ## Setup on server 
-1. On server you need to create an folder to save your .env and docker-compose.yaml files, in my case, this is: 
+1. On server you need to create an folder to save your .env and docker-compose.yml files, in my case, this is: 
 ![Alt text](./readme-imgs/image-8.png)
 2. Create .env file in this folder and add your environment variables , in my example case:![Alt text](./readme-imgs/image-10.png)
 
-Note: this folder is also place github runner use to save the you docker-compose.yaml of your project
+Note: this folder is also place github runner use to save the you docker-compose.yml of your project
 
 <!-- USAGE EXAMPLES -->
-## Explanation and usage of [Template](.github\workflows\ci-cd.yaml)
+## Explanation and usage of [Template](.github\workflows\ci-cd.yml)
 I will explain and how to edit the template to make it suitable for your project  
 ![Alt text](./readme-imgs/image-12.png)
 
