@@ -107,7 +107,7 @@ Like this:
 1. On server you need to create an folder to save your .env and docker-compose.yml files, in my case, this is: ![Alt text](./readme-imgs/image-8.png)
 2. Create .env file in this folder and add your environment variables , in my example case:![Alt text](./readme-imgs/image-10.png)
 
-Note: this folder is also place github runner use to save the you docker-compose.yml of your project
+Note: This folder is also where the github runner will use to save your project's docker-compose.yml
 
 <!-- USAGE EXAMPLES -->
 ## Explanation and usage of [Template](.github/workflows/ci-cd.yml)
