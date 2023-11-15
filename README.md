@@ -59,7 +59,7 @@ Here is the basic flow of the process:
 
 
 1. Create a <code>.github/workflows</code>  create a file named <code>ci-cd.yml</code>  (Just the example name, you can define the name you want)
-2. Copy this [Template](.github\workflows\ci-cd.yaml) and paste it to <code>ci-cd.yml</code>
+2. Copy this [Template](.github\workflows\ci-cd.yml) and paste it to <code>ci-cd.yml</code>
    
 <!-- 3. Install NPM packages
    ```sh
