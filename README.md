@@ -57,7 +57,7 @@ Here is the basic flow of the process:
 
 
 1. Create a <code>.github/workflows</code>  create a file named <code>ci-cd.yml</code>  (Just the example name, you can define the name you want)
-2. Copy this [Template](.github\workflows\ci-cd.yml) and paste it to <code>ci-cd.yml</code>
+2. Copy this [Template](.github/workflows/ci-cd.yml) and paste it to <code>ci-cd.yml</code>
    
 <!-- 3. Install NPM packages
    ```sh
@@ -86,7 +86,7 @@ The best practice is create the SSH Keys on local machine not remote machine. Lo
 
 You can add another key you need for your project, but three key above is required to connect to the deployment server
 
-Note: If you want to change the name of three keys, you also must change with the same key name in secrets in [Template](.github\workflows\ci-cd.yml)
+Note: If you want to change the name of three keys, you also must change with the same key name in secrets in [Template](.github/workflows/ci-cd.yml)
 ![Alt text](./readme-imgs/image-14.png)
 
 
@@ -111,7 +111,7 @@ Like this:
 Note: this folder is also place github runner use to save the you docker-compose.yml of your project
 
 <!-- USAGE EXAMPLES -->
-## Explanation and usage of [Template](.github\workflows\ci-cd.yml)
+## Explanation and usage of [Template](.github/workflows/ci-cd.yml)
 I will explain and how to edit the template to make it suitable for your project  
 ![Alt text](./readme-imgs/image-12.png)
 
