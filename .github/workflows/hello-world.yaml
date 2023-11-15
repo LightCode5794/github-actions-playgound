@@ -19,12 +19,13 @@ jobs:
     permissions:
       issues: write
       pull-requests: write
+
     steps: 
-      - uses:  mheap/github-action-required-labels@v5
-        with:
-          mode: exactly
-          count: 0
-          labels: "do not build"
+      # - uses:  mheap/github-action-required-labels@v5
+      #   with:
+      #     mode: exactly
+      #     count: 0
+      #     labels: "do not build"
       - run: echo "TODAY=$(date +%y-%m-%d)" >> $GITHUB_ENV
       - run: echo hello-world 👋🌏, today is $TODAY
       
