@@ -41,7 +41,7 @@
 This is an example of CI/CD for your project using github action with github runner host, build image using docker, push it to github package and deploy it on remote aws server using ssh private key
 Here is the basic flow of the process:
 
-![Alt text](./readme-imgs/image-1.png)
+![Alt text](./readme-imgs/image-3.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -49,7 +49,7 @@ Here is the basic flow of the process:
 
 ## Prerequisites
 * Your project already has a dockerfile and docker compose at the root folder
-![Alt text](./readme-imgs/image-3.png)
+![Alt text](./readme-imgs/image-2.png)
 * A server can be accessed by ssh for deployment
 * Docker was installed on your server
 
