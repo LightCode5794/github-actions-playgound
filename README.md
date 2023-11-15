@@ -139,9 +139,12 @@ The <code>ci-cd.yml</code> will have two jobs: <b>Build</b>  and <b>Deploy</b>
 1. After all steps above, commit and push your code
 2. You will see your workflow when click the <code>Action</code>
 3. You can see your image stored in the Github Package Registry
+
 ![Alt text](./readme-imgs/image-22.png)
 ![Alt text](./readme-imgs/image-23.png)
 4. After all, let check the image and container run on your server
+
+![Alt text](./readme-imgs/image-24.png)
 
   
 <!-- References -->
