@@ -57,7 +57,7 @@ Here is the basic flow of the process:
 
 
 1. Create a <code>.github/workflows</code>  create a file named <code>ci-cd.yml</code>  (Just the example name, you can define the name you want)
-2. Copy this [Template](.github\workflows\ci-cd.yml) and paste it to <code>ci-cd.yml</code>
+2. Copy this [Template](.github/workflows/ci-cd.yml) and paste it to <code>ci-cd.yml</code>
    
 <!-- 3. Install NPM packages
    ```sh
@@ -86,32 +86,31 @@ The best practice is create the SSH Keys on local machine not remote machine. Lo
 
 You can add another key you need for your project, but three key above is required to connect to the deployment server
 
-Note: If you want to change the name of three keys, you also must change with the same key name in secrets in [Template](.github\workflows\ci-cd.yml)
+Note: If you want to change the name of three keys, you also must change with the same key name in secrets in [Template](.github/workflows/ci-cd.yml)
 ![Alt text](./readme-imgs/image-14.png)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Setup your docker-compose
-1. Change your image follow the format: 
+1. Change your image name in docker-compose.yml following the format: 
 ```
 ghcr.io/{your_repository_path}:latest
 ```
-Like this:
+2. You must add the env_file flag
+
+Like this: 
+
 ![Alt text](./readme-imgs/image-21.png)
 
-2. You must add the env_file flag like this:
-![Alt text](./readme-imgs/image-20.png)
-
 ## Setup on server 
-1. On server you need to create an folder to save your .env and docker-compose.yml files, in my case, this is: 
-![Alt text](./readme-imgs/image-8.png)
+1. On server you need to create an folder to save your .env and docker-compose.yml files, in my case, this is: ![Alt text](./readme-imgs/image-8.png)
 2. Create .env file in this folder and add your environment variables , in my example case:![Alt text](./readme-imgs/image-10.png)
 
 Note: this folder is also place github runner use to save the you docker-compose.yml of your project
 
 <!-- USAGE EXAMPLES -->
-## Explanation and usage of [Template](.github\workflows\ci-cd.yml)
+## Explanation and usage of [Template](.github/workflows/ci-cd.yml)
 I will explain and how to edit the template to make it suitable for your project  
 ![Alt text](./readme-imgs/image-12.png)
 
