@@ -1,5 +1,5 @@
 #
-name: Create and publish a Docker image
+name: Build and Deploy
 
 # Configures this workflow to run every time a change is pushed to the branch called `release`.
 on:
@@ -54,24 +54,16 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-   
-    - name: Lowercase repository name variable
-      run: echo "${{ env.IMAGE_NAME }}" | tr '[:upper:]' '[:lower:]' | export IMAGE_NAME
-
+    # Lowercase the repository name to avoid the Uppercase docker issues, save it in IMAGE_REPOSITORY variable
     - name: Set IMAGE_REPOSITORY variable
       run: echo IMAGE_REPOSITORY=$(echo LightCode5794/github-actions-playgound | tr '[:upper:]' '[:lower:]') >> $GITHUB_ENV
-    
-    - name: Log in to the Container registry
-      uses: docker/login-action@v3
-      with:
-         registry: ${{ env.REGISTRY }}
-         username: ${{ github.actor }}
-         password: ${{ secrets.GITHUB_TOKEN }}
     -
+      # Get the name of the branch that has the change
       name: Extract branch name
       id: extract_branch
       run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
     - 
+      # Connect to deployment server, using  appleboy/ssh-action@v1.0.0
       name: Executing remote ssh commands using ssh key and pull the image to server
       uses: appleboy/ssh-action@v1.0.0
       with:
