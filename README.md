@@ -80,7 +80,7 @@ The best practice is create the SSH Keys on local machine not remote machine. Lo
 1. Click setting in your repository access the <code>Secrets and variables</code>
 ![Alt text](./readme-imgs/image-7.png)
 2. Add three key with name <code>DEPLOY_KEY</code>, <code>HOST</code>, <code>USERNAME</code>:
-* DEPLOY_KEY: the private key in file <code>id_rsa.pub</code> that you generate above
+* DEPLOY_KEY: the private key in file <code>id_rsa</code> (note: not id_rsa.pub file) that you generate above
 * HOST: The public ip of the deployment server
 * USERNAME: SSH username, ex: ubuntu, root, ..., this the username on server you use to add the public rsa key above
 
